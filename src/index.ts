@@ -1,25 +1,38 @@
 enum Season {
-	SPRING = 'Spring',
-	SUMMER = 'Summer',
-	AUTUMN = 'Autumn',
-	WINTER = 'Winter',
+	SPRING,
+	SUMMER,
+	AUTUMN,
+	WINTER,
 }
 
-const seasonDays = {
-	[Season.SPRING]: 92,
-	[Season.SUMMER]: 93,
-	[Season.AUTUMN]: 90,
-	[Season.WINTER]: 89,
+type EnumObject<T extends PropertyKey, V = string> = Record<T, V>;
+
+type SeasonConfig = {
+	label: string;
+	days: number;
 };
 
-function calculateTotalDaysInSeason(season: Season): number {
-	return seasonDays[season] ?? 0;
-}
+const seasonsConfig: EnumObject<Season, SeasonConfig> = {
+	[Season.SPRING]: {
+		label: 'Spring',
+		days: 92,
+	},
+	[Season.SUMMER]: {
+		label: 'Summer',
+		days: 93,
+	},
+	[Season.AUTUMN]: {
+		label: 'Autumn',
+		days: 90,
+	},
+	[Season.WINTER]: {
+		label: 'Winter',
+		days: 89,
+	},
+} as const;
 
-// Test cases
-// console.log(calculateTotalDaysInSeason('Invalid')); // Expected output: 0
-
-for (const [key, value] of Object.entries(Season)) {
-	console.log(key, value);
-	console.log(calculateTotalDaysInSeason(value));
+for (const [key, value] of Object.entries(seasonsConfig)) {
+	console.log('id', key);
+	console.log('label', value.label);
+	console.log('days', value.days);
 }
