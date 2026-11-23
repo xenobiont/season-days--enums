@@ -8,7 +8,7 @@ An option for each season must display a season name and a number of days to use
 
 - Create a numeric enum for seasons
 - Create a configuration object seasonsConfig that will be used to set additional info to show to the user for each enum member
-- This must include a text abel for each season and a number of days
+- This must include a text label for each season and a number of days
 
 Number of days in seasons:
 spring - 92,
@@ -26,6 +26,6 @@ Use the configureation object to log into console per each season:
 When writing configuration object, we want to ensure that we set the number of days for each season.
 Create a generic EnumObject type, that can be used to type-check our seasonsConfig to make sure it provides correct configuration for each member of original Season enum.
 
-3 Adavanced
+3 Advanced
 Create an 'option' HTML element for each season
-Create a functional form with dropdown texthat will allow to select the season and will send the API POST request
+Create a functional form with dropdown text that will allow to select the season and will send the API POST request
